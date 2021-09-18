@@ -1,0 +1,17 @@
+name: Deploy Flutter web app to Github Pages
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2 # Only works with v2
+      - uses: subosito/flutter-action@v1
+      - uses: bluefireteam/flutter-gh-pages@v7
+        with:
+          baseHref: /dotenv_gh_pages/
+          customArgs: --dart-define="TEST_GH=${{ secrets.TEST }}"
