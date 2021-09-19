@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'env/env.dart';
 
-Future main() async {
-  await dotenv.load(fileName: 'dotenv');
+void main() {
   runApp(const MyApp());
 }
 
@@ -19,10 +18,10 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Test dotenv in GitHub Pages',
+      title: 'Test .env in GitHub Pages',
       theme: theme,
       darkTheme: darkTheme,
-      home: const MyHomePage(title: 'Test dotenv in GitHub Pages'),
+      home: const MyHomePage(title: 'Test .env in GitHub Pages'),
     );
   }
 }
@@ -47,10 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Value from dotenv file (TEST key): ',
+              'Value from .env file (TEST key): ',
               style: Theme.of(context).textTheme.headline4,
             ),
-            Text("'${dotenv.env['TEST']}'"),
+            const Text("'${Env.test}'"),
           ],
         ),
       ),

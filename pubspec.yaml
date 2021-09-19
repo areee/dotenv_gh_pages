@@ -1,5 +1,5 @@
 name: dotenv_gh_pages
-description: Test dotenv in GitHub Pages
+description: Test .env in GitHub Pages
 
 publish_to: 'none'
 
@@ -11,12 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_dotenv: ^5.0.2
+  envify: any
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  envify_generator: any
+  build_runner: any
 
   flutter_lints: ^1.0.0
 
@@ -24,4 +26,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - dotenv
+    - .env
