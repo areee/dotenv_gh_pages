@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future main() async {
-  String testGh = const String.fromEnvironment('TEST_GH');
-  await dotenv.load(mergeWith: {'TEST_GH': testGh});
+  await dotenv.load();
   runApp(const MyApp());
 }
 
@@ -37,8 +36,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var a = dotenv.env['VAR_NAME'];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,11 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'Value from dotenv file (TEST & TEST_GH keys): ',
+              'Value from dotenv file (TEST key): ',
               style: Theme.of(context).textTheme.headline4,
             ),
             Text("'${dotenv.env['TEST']}'"),
-            Text("'${dotenv.env['TEST_GH']}'"),
           ],
         ),
       ),
